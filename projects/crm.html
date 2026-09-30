@@ -20,7 +20,7 @@
     <ul class="docmeta">
       <li><span class="badge ok">v1 shipped</span> <span class="badge">Ongoing</span></li>
       <li>Sep 2026 – present</li>
-      <li>Next.js · TypeScript · Supabase · Vercel</li>
+      <li>Built with Claude (AI-assisted)</li>
     </ul>
 
     <ul class="actions">
@@ -32,7 +32,7 @@
     <h2 id="problem">The problem</h2>
     <p>A group of 20 businesses needs its EIN letters, licenses, and insurance policies in one place, with renewal dates tracked. Different staff should only see the businesses they're responsible for, and it all had to run on free tiers.</p>
 
-    <h2 id="built">What I built</h2>
+    <h2 id="built">What it does</h2>
     <div class="stats">
       <div class="stat"><p class="num">20</p><p class="label">business entities tracked</p></div>
       <div class="stat"><p class="num">3</p><p class="label">roles: admin, editor, viewer</p></div>
@@ -59,7 +59,8 @@
     <p>The audit log works the same way: nobody can write to it directly. Database triggers add an entry whenever data changes, so nothing is left out.</p>
 
     <h2 id="process">How I worked</h2>
-    <p>I wrote the <a href="../requirements/crm-v1.html">v1 requirements</a> first (goal, features, access model, and build order), then built against them. Since v1, I've added edit and delete, an editor role, the audit log, password reset, and cash sheets as new needs came up. Every push runs a CI check that type-checks, lints, and builds the app.</p>
+    <p>My part was the business side: I wrote the <a href="../requirements/crm-v1.html">v1 requirements</a> (goal, features, access model, and build order), decided how the tool should work for staff, and tested it against real needs. The code was written and run by Claude, an AI assistant, working from those requirements. Coding isn't my specialty. Since v1, I've added edit and delete, an editor role, the audit log, password reset, and cash sheets as new needs came up. Every change is automatically checked to make sure the app still builds.</p>
+    <p class="source">Tech stack, for reference: Next.js, TypeScript, Supabase (Postgres), Vercel.</p>
 
     <h2 id="next">What's next: Sarathi One</h2>
     <p>Sarathi One is my plan, still at the requirements stage, to turn this into a multi-tenant product any business can sign up for. It would have self-serve sign-up, an isolated workspace for each business, and an installable mobile app (PWA), on the same stack with Row Level Security keeping each business's data separate.</p>
