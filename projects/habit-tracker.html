@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Habit Tracker</title>
+  <meta name="description" content="Case study: an offline, installable habit tracker PWA by Rushma Parajuli.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <article class="doc case">
+    <p class="crumb"><a href="../index.html#habits">← Rushma Parajuli · Portfolio</a></p>
+
+    <h1>Habit tracker</h1>
+    <p class="sub">A private, offline habit tracker that installs like an app</p>
+    <ul class="docmeta">
+      <li><span class="badge ok">v1 built</span></li>
+      <li>Sep 2026</li>
+      <li>JavaScript · PWA · no framework</li>
+    </ul>
+
+    <ul class="actions">
+      <li><a class="btn primary" href="https://github.com/rushmaparajuli39/Android-Productivity-Tracker-App" target="_blank" rel="noopener">Source code ↗</a></li>
+    </ul>
+
+    <figure>
+      <img src="../assets/habit-tracker.png" alt="Three phone screens: today's checklist with a progress ring, a habit's page with streak stats and a 16-week calendar grid, and the checklist in dark mode" width="1320" height="860" loading="lazy">
+      <figcaption>Today's checklist, a habit's history, and dark mode (demo data).</figcaption>
+    </figure>
+
+    <h2 id="why">Why I built it</h2>
+    <p>I wanted a simple way to track my own daily habits, one that keeps my data private and works without signing up for anything. It began in 2022 as a plan for a native Android app, and I rebuilt it as a progressive web app so it runs on any phone.</p>
+
+    <h2 id="features">What it does</h2>
+    <ul>
+      <li><strong>Daily checklist</strong> with a progress ring, plus the option to go back and fill in earlier days.</li>
+      <li><strong>Flexible schedules:</strong> every day, weekdays, or any days you pick. A day off never breaks a streak.</li>
+      <li><strong>Streaks and stats:</strong> current and best streak, 30-day completion rate, and a 16-week calendar grid for each habit.</li>
+      <li><strong>Notes</strong> on any habit on any day.</li>
+      <li><strong>Reminders</strong> handed to the phone's calendar as a repeating event.</li>
+      <li><strong>Works offline</strong>, installs to the home screen, and follows light or dark mode.</li>
+      <li><strong>Backup and restore</strong> as a file, because all data stays on the device.</li>
+    </ul>
+
+    <h2 id="decisions">Decisions worth noting</h2>
+    <ul>
+      <li><strong>No server, no account.</strong> For a personal tool, keeping data on the phone is simpler and more private. Sync can come later.</li>
+      <li><strong>Calendar-based reminders.</strong> A web app can't reliably schedule notifications without a push server, so it exports a standard calendar event instead.</li>
+      <li><strong>Tested core logic.</strong> Streaks and dates are separate from the interface and covered by unit tests that run on every push, including daylight-saving edge cases.</li>
+    </ul>
+
+    <nav class="pager" aria-label="More projects">
+      <a href="social-media.html"><small>← Previous</small>Social media management</a>
+      <a class="next" href="crm.html"><small>Next →</small>Entity Document CRM</a>
+    </nav>
+    <footer><a href="../index.html">← Back to portfolio</a></footer>
+  </article>
+</body>
+</html>

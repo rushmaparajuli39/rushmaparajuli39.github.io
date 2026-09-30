@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entity Document CRM</title>
+  <meta name="description" content="Case study: an internal CRM for EIN, license, and insurance records across 20 businesses, built by Rushma Parajuli with Next.js and Supabase.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <article class="doc case">
+    <p class="crumb"><a href="../index.html#crm">← Rushma Parajuli · Portfolio</a></p>
+
+    <h1>Entity Document CRM</h1>
+    <p class="sub">An internal tool for compliance documents across 20 businesses</p>
+    <ul class="docmeta">
+      <li><span class="badge ok">v1 shipped</span> <span class="badge">Ongoing</span></li>
+      <li>Sep 2026 – present</li>
+      <li>Next.js · TypeScript · Supabase · Vercel</li>
+    </ul>
+
+    <ul class="actions">
+      <li><a class="btn primary" href="https://crm-app-liard-phi.vercel.app" target="_blank" rel="noopener">Live app ↗</a></li>
+      <li><a class="btn" href="../requirements/crm-v1.html">v1 requirements</a></li>
+      <li><a class="btn" href="https://github.com/rushmaparajuli39/CRM" target="_blank" rel="noopener">Source code ↗</a></li>
+    </ul>
+
+    <h2 id="problem">The problem</h2>
+    <p>A group of 20 businesses needs its EIN letters, licenses, and insurance policies in one place, with renewal dates tracked. Different staff should only see the businesses they're responsible for, and it all had to run on free tiers.</p>
+
+    <h2 id="built">What I built</h2>
+    <div class="stats">
+      <div class="stat"><p class="num">20</p><p class="label">business entities tracked</p></div>
+      <div class="stat"><p class="num">3</p><p class="label">roles: admin, editor, viewer</p></div>
+      <div class="stat"><p class="num">6/6</p><p class="label">v1 requirements shipped</p></div>
+      <div class="stat"><p class="num">$0</p><p class="label">monthly hosting cost</p></div>
+    </div>
+    <ul>
+      <li><strong>A dashboard</strong> of the businesses each person can access, with alerts for licenses and insurance expiring within 30 and 60 days.</li>
+      <li><strong>A page for each business</strong> with its EIN records, licenses, and policies, and the documents behind them.</li>
+      <li><strong>Upload from a phone camera</strong>, so staff can take a photo of a document and file it on the spot.</li>
+      <li><strong>Monthly cash sheets</strong> for each business, with an automatic email listing any that are missing.</li>
+      <li><strong>An audit log</strong> of every create, edit, and delete.</li>
+      <li><strong>An admin panel</strong> to add staff logins and decide who can see which business.</li>
+    </ul>
+
+    <h2 id="security">How access is kept safe</h2>
+    <p>Hiding buttons in the interface isn't security. In this app, the database itself checks every request:</p>
+    <ol class="flow">
+      <li><strong>Sign in</strong>Staff log in with email and password.</li>
+      <li><strong>Request</strong>The app asks for a business's records.</li>
+      <li><strong>Database check</strong>Postgres Row Level Security looks up the user's role and which businesses they've been granted.</li>
+      <li><strong>Result</strong>Only permitted rows come back. Anything else is refused, whatever the app asked for.</li>
+    </ol>
+    <p>The audit log works the same way: nobody can write to it directly. Database triggers add an entry whenever data changes, so nothing is left out.</p>
+
+    <h2 id="process">How I worked</h2>
+    <p>I wrote the <a href="../requirements/crm-v1.html">v1 requirements</a> first (goal, features, access model, and build order), then built against them. Since v1, I've added edit and delete, an editor role, the audit log, password reset, and cash sheets as new needs came up. Every push runs a CI check that type-checks, lints, and builds the app.</p>
+
+    <h2 id="next">What's next: Sarathi One</h2>
+    <p>Sarathi One is my plan, still at the requirements stage, to turn this into a multi-tenant product any business can sign up for. It would have self-serve sign-up, an isolated workspace for each business, and an installable mobile app (PWA), on the same stack with Row Level Security keeping each business's data separate.</p>
+
+    <nav class="pager" aria-label="More projects">
+      <a href="habit-tracker.html"><small>← Previous</small>Habit tracker</a>
+      <a class="next" href="social-media.html"><small>Next →</small>Social media management</a>
+    </nav>
+    <footer><a href="../index.html">← Back to portfolio</a></footer>
+  </article>
+</body>
+</html>
