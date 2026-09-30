@@ -136,6 +136,17 @@ h2::after { content: ""; flex: 1; height: 1px; background: var(--rule); transfor
 }
 .badge.ok { background: var(--ok-soft); color: var(--ok); }
 
+/* Social media */
+.intro-text { color: var(--ink-soft); margin: 0 0 20px; max-width: 62ch; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.stat { background: var(--surface); border-radius: 6px; padding: 16px; }
+.stat .num { margin: 0; font-family: var(--serif); font-size: 32px; line-height: 1.1; color: var(--accent); font-variant-numeric: tabular-nums; }
+.stat .label { margin: 6px 0 0; font-size: 14px; color: var(--ink-soft); line-height: 1.4; }
+.highlights { margin: 20px 0 0; padding-left: 20px; color: var(--ink-soft); }
+.highlights li + li { margin-top: 6px; }
+.highlights strong { color: var(--ink); font-weight: 600; }
+.source { margin: 12px 0 0; font-size: 13px; color: var(--ink-faint); }
+
 /* Education */
 .edu { display: grid; gap: 24px; }
 .edu-item { display: grid; grid-template-columns: 1fr auto; gap: 4px 24px; }
@@ -215,6 +226,7 @@ td { color: var(--ink-soft); }
 @media (max-width: 860px) {
   .page { grid-template-columns: 1fr; gap: 48px; padding: 48px 24px 72px; }
   .intro { position: static; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
   h1 { font-size: 38px; }
   .doc { padding: 40px 24px 72px; }
 }
