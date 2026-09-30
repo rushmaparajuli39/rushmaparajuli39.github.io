@@ -328,3 +328,15 @@ a.stat:hover .label { color: var(--accent); }
 .tools { margin: 16px 0 0; font-size: 15px; color: var(--ink-soft); }
 .tools strong { color: var(--ink); font-weight: 600; }
 @media (max-width: 480px) { .edu-item .detail { grid-row: auto; } }
+
+/* Accounts I manage */
+.accounts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 12px 0 8px; }
+.acct { background: var(--surface); border-radius: 8px; padding: 16px; }
+.acct-name { margin: 0; font-weight: 600; color: var(--ink); }
+.acct-type { margin: 0 0 10px; font-size: 14px; color: var(--ink-faint); }
+.doc .pills, .pills { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.doc .pills li + li { margin-top: 0; }
+.pills a { display: inline-block; padding: 4px 10px; border: 1px solid var(--rule); border-radius: 999px; font-size: 13px; text-decoration: none; color: var(--ink); background: var(--bg); }
+.pills a:hover { border-color: var(--accent); color: var(--accent); }
+@media (max-width: 640px) { .accounts { grid-template-columns: 1fr; } }
+.doc .acct-name { color: var(--ink); }
