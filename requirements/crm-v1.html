@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CRM v1 Requirements</title>
+  <meta name="description" content="Version 1 requirements and current status for the Entity Document CRM, an ongoing project by Rushma Parajuli.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <article class="doc">
+    <p class="crumb"><a href="../index.html#crm">← Rushma Parajuli · Projects</a></p>
+
+    <h1>Entity Document CRM</h1>
+    <p class="sub">Version 1 requirements</p>
+    <ul class="docmeta">
+      <li>Status: <span class="badge ok">v1 shipped</span> <span class="badge">Ongoing</span></li>
+      <li>Started Sep 2026</li>
+      <li><a href="https://github.com/rushmaparajuli39/CRM" target="_blank" rel="noopener">Source code ↗</a></li>
+    </ul>
+
+    <nav class="toc" aria-label="Contents">
+      <strong>Contents</strong>
+      <ol>
+        <li><a href="#goal">Goal</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#features">Core features (v1)</a></li>
+        <li><a href="#access">Access model</a></li>
+        <li><a href="#status">Status</a></li>
+        <li><a href="#build">Build order</a></li>
+        <li><a href="#notes">Notes and constraints</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="goal">Goal</h2>
+    <p>An internal web app to manage documents (EIN, licenses, insurance) for 20 business entities (vape shops, insurance operations, and parlors), with department-level confidential access. It must be free to run.</p>
+
+    <h2 id="stack">Stack</h2>
+    <ul>
+      <li><strong>Frontend:</strong> Next.js (React), deployed free on Vercel.</li>
+      <li><strong>Backend and database:</strong> Supabase free tier (Postgres, Auth, and file storage).</li>
+      <li><strong>Auth:</strong> Supabase Auth, with an email and password login for each staff member.</li>
+      <li><strong>File storage:</strong> Supabase Storage buckets for photos and PDFs of licenses, EIN letters, and insurance certificates.</li>
+      <li><strong>Security:</strong> Postgres Row Level Security (RLS), so access is enforced in the database, not just hidden in the UI.</li>
+    </ul>
+
+    <h2 id="features">Core features (v1)</h2>
+    <ol>
+      <li><strong>Login</strong> with Supabase Auth.</li>
+      <li><strong>Entity list:</strong> a dashboard of all 20 businesses, filtered to the ones the logged-in user is allowed to see.</li>
+      <li><strong>Entity detail page:</strong> EIN info, licenses, and insurance, with document photos and PDFs that can be viewed and downloaded.</li>
+      <li><strong>Document upload</strong> (photo or PDF) to an entity. It must work on mobile: staff should be able to take a photo with their phone's camera and upload it on the spot, not just pick an existing file. An HTML file input with <code>capture="environment"</code> gives mobile browsers the camera as an option without any extra library.</li>
+      <li><strong>Expiration tracking:</strong> flag licenses and insurance that expire within 30 or 60 days.</li>
+      <li><strong>Admin panel:</strong> choose which users can see which entities.</li>
+    </ol>
+
+    <h2 id="access">Access model</h2>
+    <ul>
+      <li>Each staff account is given access to specific entities rather than to a category. This keeps things flexible, since the department structure isn't final yet.</li>
+      <li>Admins can see and manage everything and assign access.</li>
+      <li>Regular users only ever see the entities they've been given access to.</li>
+    </ul>
+    <p>As built, this became three roles:</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Role</th><th>Sees</th><th>Can change</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Admin</strong></td><td>Every entity</td><td>Everything: entities, records, documents, access grants, and roles</td></tr>
+          <tr><td><strong>Editor</strong></td><td>Only entities they've been granted</td><td>EIN records, licenses, insurance, and their documents on those entities. Editors can't create entities or grant access.</td></tr>
+          <tr><td><strong>Viewer</strong></td><td>Only entities they've been granted</td><td>Nothing (read-only)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="status">Status</h2>
+    <h3>v1 requirements</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Requirement</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Login</td><td><span class="badge ok">Done</span></td></tr>
+          <tr><td>Entity list, filtered by access</td><td><span class="badge ok">Done</span></td></tr>
+          <tr><td>Entity detail with document viewing</td><td><span class="badge ok">Done</span></td></tr>
+          <tr><td>Document upload with mobile camera</td><td><span class="badge ok">Done</span></td></tr>
+          <tr><td>Expiration alerts (30 and 60 days)</td><td><span class="badge ok">Done</span></td></tr>
+          <tr><td>Admin access-assignment panel</td><td><span class="badge ok">Done</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>Added since v1</h3>
+    <ul>
+      <li>Edit and delete for EIN records, licenses, and insurance policies.</li>
+      <li>An editor role with write access limited to granted entities.</li>
+      <li>An audit log of every create, edit, and delete, written by database triggers so the app can't forget to log a change.</li>
+      <li>Self-service password reset, plus a "send reset link" button for admins.</li>
+      <li>Monthly cash sheets for each entity, with upload confirmations and a monthly email listing missing sheets (sent by a Vercel Cron job).</li>
+      <li>Admin tools to delete staff logins, and to delete entities (with type-to-confirm).</li>
+      <li>Database migration tracking, and a CI build check on every push.</li>
+    </ul>
+
+    <h2 id="build">Build order</h2>
+    <ol>
+      <li>Set up the Supabase project and run the schema.</li>
+      <li>Scaffold the Next.js app and connect the Supabase client.</li>
+      <li>Build the auth and login flow.</li>
+      <li>Build the entity list and detail views.</li>
+      <li>Build document upload with Supabase Storage.</li>
+      <li>Build the admin access-assignment panel.</li>
+      <li>Add the expiration alerts dashboard.</li>
+      <li>Deploy to Vercel (free tier).</li>
+    </ol>
+
+    <h2 id="notes">Notes and constraints</h2>
+    <ul>
+      <li><strong>Free-tier limits:</strong> Supabase's free tier includes a 500 MB database, 1 GB of file storage, and 50,000 monthly active users. That's plenty for this use case, but worth revisiting if photo volume grows.</li>
+      <li><strong>Entity type is a field, not a separate schema.</strong> Documents can then be filtered and labeled by type (vape shop, insurance operations, parlor) without restructuring anything.</li>
+    </ul>
+
+    <footer><a href="../index.html">← Back to portfolio</a></footer>
+  </article>
+</body>
+</html>
