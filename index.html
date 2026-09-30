@@ -14,11 +14,12 @@
 <body id="top">
   <div class="page">
     <header class="intro">
-      <a class="monogram" href="#top" aria-label="Back to top">RP</a>
+      <a class="headshot" href="#top" aria-label="Back to top"><img src="assets/headshot.jpg" alt="Rushma Parajuli" width="400" height="400"></a>
       <h1>Rushma Parajuli</h1>
       <p class="tagline">Business operations &amp; analytics — CRM systems, vendor and payroll operations, and data-driven reporting.</p>
       <nav aria-label="Sections">
         <ul class="jump">
+          <li><a href="#about">About</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#social">Social media</a></li>
           <li><a href="#projects">Projects</a></li>
@@ -55,6 +56,12 @@
     </header>
 
     <main>
+      <section aria-labelledby="about">
+        <h2 id="about">About</h2>
+        <p class="about">I run business operations and analytics across a portfolio of 20+ businesses: CRM systems, payroll, vendors, insurance operations, and marketing. I standardize workflows so there's less manual rework, and I turn operational data into reporting people can act on.</p>
+        <p class="about">I bring hands-on Salesforce, POS, and inventory experience, a Master's in Business Analytics (4.0 GPA), and dashboarding in Tableau and Power BI. I work best alongside accounting, bookkeeping, and marketing teams to keep fast-moving operations on track.</p>
+      </section>
+
       <section aria-labelledby="experience">
         <h2 id="experience">Experience</h2>
         <ol class="timeline">
@@ -62,21 +69,40 @@
             <p class="role">Business Operations &amp; Analytics <span class="badge">Current</span></p>
             <p class="org">KRS Business Group Inc · Bedford, TX</p>
             <p class="when">Aug 2026 – Present</p>
+            <ul class="duties">
+              <li>Direct operations and analytics across 20+ LLCs, covering accounting, payroll, marketing, and insurance, and standardize workflows to cut manual rework.</li>
+              <li>Led a 5-vendor evaluation of payroll and bookkeeping platforms (Gusto, ADP, QuickBooks, Patriot, Tabby), then implemented Patriot and Tabby to run payroll for 30+ employees and launch a new client service.</li>
+              <li>Built insurance operations in Salesforce and EZLynx, setting up the customer data pipeline behind a newly launched service line.</li>
+              <li>Drive social media strategy in Meta Business Suite, including growing one account by about 200 organic followers in a single month.</li>
+            </ul>
           </li>
           <li>
             <p class="role">POS System Analyst</p>
             <p class="org">Kebabs To Go · Irving, TX</p>
             <p class="when">Nov 2025 – Jul 2026</p>
+            <ul class="duties">
+              <li>Ran the POS system end to end, keeping inventory, availability, and pricing accurate in real time.</li>
+              <li>Compiled and analyzed daily sales reports to track trends and inform business decisions.</li>
+              <li>Reconciled credit and payment reports against POS records to keep the financials accurate.</li>
+            </ul>
           </li>
           <li>
             <p class="role">Associate Analyst</p>
             <p class="org"><a href="https://www.infosys.com" target="_blank" rel="noopener">Infosys Limited</a> · Richardson, TX</p>
             <p class="when">Jul 2022 – May 2023</p>
+            <ul class="duties">
+              <li>Completed intensive Agile/Scrum training: epics, user stories, sprint planning, backlog management, and Jira.</li>
+              <li>Applied the software delivery lifecycle in simulated projects and sprint ceremonies with cross-functional cohorts.</li>
+            </ul>
           </li>
           <li>
             <p class="role">Web Development Intern</p>
             <p class="org">Swift Wireless Inc · Dallas, TX</p>
             <p class="when">May 2021 – Aug 2021</p>
+            <ul class="duties">
+              <li>Led a responsive WordPress site to strengthen the company's online presence and support sales.</li>
+              <li>Added basic SEO and lead-capture forms, and trained staff to maintain the site.</li>
+            </ul>
           </li>
         </ol>
       </section>
@@ -145,12 +171,17 @@
               <li><a class="btn" href="https://github.com/rushmaparajuli39/Android-Productivity-Tracker-App" target="_blank" rel="noopener">Source code ↗</a></li>
             </ul>
           </article>
-          <article class="project" id="group5">
-            <h3>Methods-Tools-Group5</h3>
-            <p class="meta">Python, MySQL</p>
-            <p class="desc">A command-line e-commerce application built in Python with a MySQL database.</p>
+          <article class="project" id="webmail">
+            <h3>MSU Webmail <span class="badge">Team project · 2021</span></h3>
+            <p class="meta">Intro to Software Engineering, Mississippi State University</p>
+            <p class="desc">A simple, ad-free web email client, planned and delivered by a team of three over several sprints. The course that prepared me for my Associate Analyst role at Infosys.</p>
+            <ul class="points">
+              <li>Co-wrote the Software Requirements Specification: product scope, user classes, functional requirements, constraints, and a data-flow diagram.</li>
+              <li>Worked in sprints with a written test plan and acceptance tests for each feature.</li>
+            </ul>
             <ul class="actions">
-              <li><a class="btn" href="https://github.com/rushmaparajuli39/Methods-Tools-Group5" target="_blank" rel="noopener">Source code ↗</a></li>
+              <li><a class="btn primary" href="https://github.com/rushmaparajuli39/Group5/blob/main/Content/Software%20Requirements%20Specification.pdf" target="_blank" rel="noopener">Requirements spec ↗</a></li>
+              <li><a class="btn" href="https://github.com/rushmaparajuli39/Group5" target="_blank" rel="noopener">Project repo ↗</a></li>
             </ul>
           </article>
         </div>
@@ -164,12 +195,14 @@
             <p class="school"><a href="https://www.tnwesleyan.edu" target="_blank" rel="noopener">Tennessee Wesleyan University</a></p>
             <p class="when">Jan – Aug 2025</p>
             <p class="note">GPA 4.0</p>
+            <p class="detail">Capstone: interactive Tableau and Power BI dashboards with recommendations for stakeholders. Coursework in statistical analysis, data visualization, database management, business intelligence, and optimization.</p>
           </div>
           <div class="edu-item">
             <p class="degree">B.S. Computer Science</p>
             <p class="school"><a href="https://www.msstate.edu" target="_blank" rel="noopener">Mississippi State University</a></p>
             <p class="when">Aug 2020 – May 2022</p>
             <p class="note">Magna Cum Laude</p>
+            <p class="detail">Coursework in databases, data structures, algorithms, and software engineering.</p>
           </div>
         </div>
       </section>
@@ -177,19 +210,18 @@
       <section aria-labelledby="skills">
         <h2 id="skills">Skills</h2>
         <ul class="skills">
-          <li>Business Operations</li>
-          <li>CRM &amp; Salesforce</li>
-          <li>Data Analysis &amp; Visualization</li>
-          <li>Tableau</li>
-          <li>Power BI</li>
-          <li>SQL</li>
-          <li>Vendor Management</li>
+          <li>Business Operations Management</li>
+          <li>CRM Management (Salesforce)</li>
+          <li>Data Analysis &amp; Visualization (Tableau, Power BI)</li>
+          <li>Vendor Evaluation &amp; Selection</li>
           <li>Payroll Operations</li>
-          <li>Agile/Scrum</li>
-          <li>Social Media &amp; Meta Business Suite</li>
-          <li>Insurance Agency Systems (Renegade, First Connect)</li>
+          <li>Social Media Marketing &amp; Analytics</li>
           <li>POS &amp; Inventory Systems</li>
+          <li>Agile/Scrum</li>
+          <li>Cross-Functional Collaboration</li>
+          <li>IT Support &amp; Systems Setup</li>
         </ul>
+        <p class="tools"><strong>Tools:</strong> Salesforce, EZLynx, Renegade, First Connect, Meta Business Suite, Jira, QuickBooks, Patriot Software, Tabby, POS systems, Excel, SQL, Tableau, Power BI, WordPress</p>
       </section>
 
       <footer>© <span id="year">2026</span> Rushma Parajuli · <a href="mailto:parajulirush@gmail.com">parajulirush@gmail.com</a></footer>

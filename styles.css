@@ -113,16 +113,16 @@ h2::after { content: ""; flex: 1; height: 1px; background: var(--rule); transfor
   left: 5px; top: 10px; bottom: 10px;
   width: 1px; background: var(--rule);
 }
-.timeline li { position: relative; padding-left: 32px; }
-.timeline li + li { margin-top: 28px; }
-.timeline li::before {
+.timeline > li { position: relative; padding-left: 32px; }
+.timeline > li + li { margin-top: 28px; }
+.timeline > li::before {
   content: ""; position: absolute;
   left: 0; top: 8px;
   width: 11px; height: 11px; border-radius: 50%;
   background: var(--bg);
   border: 2px solid var(--ink-faint);
 }
-.timeline li.current::before { background: var(--accent); border-color: var(--accent); }
+.timeline > li.current::before { background: var(--accent); border-color: var(--accent); }
 .role { font-weight: 600; font-size: 17px; margin: 0; }
 .org { margin: 2px 0 0; color: var(--ink-soft); }
 .org a { color: inherit; }
@@ -317,3 +317,14 @@ a.stat:hover .label { color: var(--accent); }
 }
 .doc .flow, .doc .legend-row, .doc .actions, .doc .docmeta { padding-left: 0; }
 .doc .flow li + li, .doc .legend-row li + li, .doc .actions li + li, .doc .docmeta li + li { margin-top: 0; }
+
+/* Headshot, about, duties */
+.headshot { display: block; width: 112px; height: 112px; margin-bottom: 24px; border-radius: 50%; overflow: hidden; box-shadow: 0 0 0 4px var(--accent-soft); }
+.headshot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about { color: var(--ink-soft); margin: 0 0 12px; max-width: 62ch; font-size: 17px; }
+.duties { list-style: disc; margin: 8px 0 0; padding-left: 18px; color: var(--ink-soft); font-size: 15px; }
+.duties li + li { margin-top: 4px; }
+.edu-item .detail { grid-column: 1 / -1; margin: 4px 0 0; font-size: 15px; color: var(--ink-soft); }
+.tools { margin: 16px 0 0; font-size: 15px; color: var(--ink-soft); }
+.tools strong { color: var(--ink); font-weight: 600; }
+@media (max-width: 480px) { .edu-item .detail { grid-row: auto; } }
